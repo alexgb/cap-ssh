@@ -1,7 +1,6 @@
 require "cap-ssh/version"
 
-
-Capistrano::Configuration.instance(true).load do
+Capistrano::Configuration.instance(:must_exist).load do
 
   namespace :ssh do
     
