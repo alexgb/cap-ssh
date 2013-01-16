@@ -33,7 +33,9 @@ Capistrano::Configuration.instance(:must_exist).load do
         server = servers.first
       end
 
-      logger.info "Deploy Directory: #{deploy_to}"
+      unless server
+        raise Capistrano::CommandError.new("No server defined!")
+      end
 
       Capistrano::SSH.connection_strategy(server, self) do |host, user, connection_options|
         start_session(host, user, connection_options)
