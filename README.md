@@ -6,7 +6,7 @@ Initiate an SSH session from your Capistrano configured servers.
 
 Add this line to your application's Gemfile:
 
-    gem 'cap-ssh'
+    gem 'cap-ssh', :require => false
 
 And then execute:
 
