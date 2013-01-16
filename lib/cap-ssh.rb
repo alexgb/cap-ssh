@@ -52,7 +52,8 @@ Capistrano::Configuration.instance(:must_exist).load do
         user ? "#{user}@" : nil,
         host,
         connection_options[:port] ? ":#{connection_options[:port]}" : nil,
-        connection_options[:forward_agent] ? " -a" : nil
+        connection_options[:forward_agent] ? " -a" : nil,
+        " -t 'cd #{current_path}; bash --login'"
       ].reject(&:nil?).join('')
     end
     
